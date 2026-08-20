@@ -55,6 +55,13 @@ warn_return_any = true
 warn_unused_configs = true
 mypy_path = "src"
 
+[[tool.mypy.overrides]]
+# PyYAML ships no bundled type stubs; the `types-PyYAML` package would need its own
+# dev-dependency + reinstall, so this override is the lighter fix (config-only, no
+# reinstall needed) for the single `import yaml` in cli.py.
+module = "yaml"
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]

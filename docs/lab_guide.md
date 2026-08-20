@@ -114,4 +114,13 @@ Cách khắc phục (chọn 1 trong 3):
 Mỗi nhóm trả lời 2 câu:
 
 1. Case nào nên dùng multi-agent? Vì sao?
+
+   Khi câu hỏi cần trích dẫn/tra cứu nguồn thật, hoặc cần verify chéo nhiều nguồn có khả năng
+   mâu thuẫn. Dữ liệu benchmark thật (`reports/benchmark_report.md`): citation coverage 0%
+   (baseline) → 36% (multi-agent), đổi lại chấp nhận trả thêm ~2.5x latency, ~3x cost.
+
 2. Case nào không nên dùng multi-agent? Vì sao?
+
+   Khi câu hỏi đơn giản, không cần trích dẫn, chỉ cần tri thức sẵn có của model trả lời nhanh —
+   multi-agent tốn thêm chi phí/độ trễ mà không tạo thêm giá trị tương xứng (3 lệnh gọi LLM thay
+   vì 1, nhưng chất lượng câu trả lời không chắc tốt hơn nếu không cần bằng chứng).
